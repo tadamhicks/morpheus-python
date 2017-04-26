@@ -2,7 +2,6 @@ import requests
 import json
 from urlparse import urljoin
 from urllib import urlencode
-import posixpath
 
 
 class Morpheus(object):
@@ -41,29 +40,3 @@ class Morpheus(object):
         access_token = json_response["access_token"]
 
         self.access_token = access_token
-
-    def account(self, id=None):
-
-        """
-        Pulling data from the billing api
-        """
-
-        if id:
-
-            account_url = urljoin(
-                        self.baseurl,
-                        posixpath.join('api', 'billing', 'account', id)
-                        )
-        else:
-            account_url = urljoin(
-                        self.baseurl,
-                        posixpath.join('api', 'billing', 'account')
-                        )
-
-        headers = {"Authorization": "BEARER " + self.access_token}
-
-        response = requests.get(account_url, headers=headers)
-
-        bill_info = json.loads(response.text)
-
-        return bill_info
