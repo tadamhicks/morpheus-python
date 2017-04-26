@@ -91,3 +91,27 @@ class Billing(Morpheus):
             servers_info = json.loads(response.text)
 
             return servers_info
+
+    def instances(self, id=None):
+
+        if id:
+
+            if not isinstance(id, six.string_types):
+                id = str(id)
+
+            instances_url = urljoin(
+                            self.baseurl,
+                            posixpath.join(self.endpoint, 'instances', id)
+                            )
+        else:
+
+            instances_url = urljoin(
+                            self.baseurl,
+                            posixpath.join(self.endpoint, 'instances')
+                            )
+
+            response = requests.get(instances_url, headers=self.headers)
+
+            instances_info = json.loads(response.text)
+
+            return instances_info
