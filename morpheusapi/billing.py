@@ -11,6 +11,11 @@ class Billing(Morpheus):
             self, baseurl,
             username, password,
             id=None):
+        """
+        Billing object is a Morpheus object.  Inherits OAuth mechanism.
+        This object is a wrapper for the billing endpoint.  All methods
+        are specific to billing.
+        """
         self.id = id
         Morpheus.__init__(self, baseurl, username, password)
         self.headers = {"Authorization": "BEARER " + self.access_token}

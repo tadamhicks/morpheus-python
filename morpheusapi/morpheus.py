@@ -10,7 +10,9 @@ class Morpheus(object):
             self, baseurl,
             username, password):
         """
-        Creating a Morpheus object
+        Creating a Morpheus login token through OAuth.
+        This base class can be used by all other API
+        subclasses to ensure proper auth.
         """
         self.username = username
         self.password = password
