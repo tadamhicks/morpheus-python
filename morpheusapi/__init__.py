@@ -26,8 +26,8 @@ Adam Hicks (thomas.adam.hicks@gmail.com, ahicks@morpheusdata.com)
 Current code lives on https://github.com/tadamhicks/morpheus-python
 """
 
-from morpheusapi import (morpheus, billing)
+from morpheusapi import (morpheus, billing, instances)
 
-__all__ = ["morpheus", "billing"]
+__all__ = ["morpheus", "billing", "instances"]
 
 __version__ = '2.11.1'
