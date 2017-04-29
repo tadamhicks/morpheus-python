@@ -40,9 +40,7 @@ class Billing(Morpheus):
 
         response = requests.get(account_url, headers=self.headers)
 
-        bill_info = json.loads(response.text)
-
-        return bill_info
+        return response.text
 
     def zones(self, id=None):
 
@@ -64,9 +62,7 @@ class Billing(Morpheus):
 
         response = requests.get(zone_url, headers=self.headers)
 
-        zone_info = json.loads(response.text)
-
-        return zone_info
+        return response.text
 
     def servers(self, id=None):
 
@@ -88,11 +84,9 @@ class Billing(Morpheus):
 
             response = requests.get(servers_url, headers=self.headers)
 
-            servers_info = json.loads(response.text)
+            return response.text
 
-            return servers_info
-
-    def instances(self, id=None):
+    def instances(self, id=None, ids=False):
 
         if id:
 
@@ -112,6 +106,33 @@ class Billing(Morpheus):
 
             response = requests.get(instances_url, headers=self.headers)
 
-            instances_info = json.loads(response.text)
+            if ids:
 
-            return instances_info
+                json_data = json.loads(response.text)
+
+                instance_list = []
+
+                for instance in json_data["billingInfo"]["instances"]:
+                    instance_list.append(instance["instanceId"])
+
+                return json.dumps(instance_list)
+
+            else:
+
+                return response.text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

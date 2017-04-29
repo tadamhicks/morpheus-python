@@ -32,6 +32,8 @@ class Instances(Morpheus):
 
         response = requests.get(instances_url, headers=self.headers)
 
-        instances_info = json.loads(response.text)
+        #instances_info = json.loads(response.text)
 
-        return instances_info
+        #return instances_info
+
+        return response.text
