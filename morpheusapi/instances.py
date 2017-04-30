@@ -46,3 +46,17 @@ class Instances(Morpheus):
         else:
 
             return response.text
+
+    def get_instance_env(self, id):
+
+        if not isinstance(id, six.string_types):
+            id = str(id)
+
+        env_url = urljoin(
+                    self.baseurl,
+                    posixpath.join(self.endpoint, id, 'envs')
+                    )
+
+        response = requests.get(env_url, headers=self.headers)
+
+        return response.text
