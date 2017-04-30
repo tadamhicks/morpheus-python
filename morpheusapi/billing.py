@@ -21,7 +21,7 @@ class Billing(Morpheus):
         self.headers = {"Authorization": "BEARER " + self.access_token}
         self.endpoint = posixpath.join('api', 'billing')
 
-    def account(self, id=None):
+    def get_account(self, id=None):
 
         if id:
 
@@ -42,7 +42,7 @@ class Billing(Morpheus):
 
         return response.text
 
-    def zones(self, id=None):
+    def get_zones(self, id=None):
 
         if id:
 
@@ -64,7 +64,7 @@ class Billing(Morpheus):
 
         return response.text
 
-    def servers(self, id=None):
+    def get_servers(self, id=None):
 
         if id:
 
@@ -86,7 +86,7 @@ class Billing(Morpheus):
 
             return response.text
 
-    def instances(self, id=None, ids=False):
+    def get_instances(self, id=None, ids=False):
 
         if id:
 
@@ -120,19 +120,3 @@ class Billing(Morpheus):
             else:
 
                 return response.text
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
