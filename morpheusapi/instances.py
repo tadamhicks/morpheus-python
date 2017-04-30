@@ -10,6 +10,11 @@ class Instances(Morpheus):
     def __init__(
             self, baseurl,
             username, password):
+        """
+        Instance object is a Morpheus object.  Inherits OAuth
+        mechanism.  Wrapper for instances endpoint.  All methods
+        are specific to instances API in morpheus.
+        """
 
         Morpheus.__init__(self, baseurl, username, password)
         self.headers = {"Authorization": "BEARER " + self.access_token}
@@ -17,6 +22,10 @@ class Instances(Morpheus):
 
     def get_instances(self, id=None, ids=False):
 
+        """
+        Method to get instance details.  Call all or one.  Can
+        also return JSON Array of instance ids.
+        """
         if id:
 
             if not isinstance(id, six.string_types):
@@ -48,6 +57,10 @@ class Instances(Morpheus):
             return response.text
 
     def get_instance_env(self, id):
+
+        """
+        GET call to return instance env variables.
+        """
 
         if not isinstance(id, six.string_types):
             id = str(id)
