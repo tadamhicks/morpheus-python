@@ -15,7 +15,7 @@ class Instances(Morpheus):
         self.headers = {"Authorization": "BEARER " + self.access_token}
         self.endpoint = posixpath.join('api', 'instances')
 
-    def instances(self, id=None, ids=False):
+    def get_instances(self, id=None, ids=False):
 
         if id:
 
@@ -42,10 +42,6 @@ class Instances(Morpheus):
                 instance_list.append(instance["id"])
 
             return json.dumps(instance_list)
-
-        #instances_info = json.loads(response.text)
-
-        #return instances_info
 
         else:
 
