@@ -43,7 +43,7 @@ class Instances(Morpheus):
 
         if ids:
 
-            json_data = json.loads(response.text)
+            json_data = response.json()
 
             instance_list = []
 
@@ -71,5 +71,21 @@ class Instances(Morpheus):
                     )
 
         response = requests.get(env_url, headers=self.headers)
+
+        return response.text
+
+    def provision_instance(self, data):
+
+        """
+        Method to POST to instances endpoint to provision
+        data should be {'key': 'value'} format specifying instance provsioning parameters
+        """
+
+        provision_url = urljoin(
+                            self.baseurl,
+                            self.endpoint
+                            )
+
+        response = requests.post(provision_url, headers=self.headers, data=data)
 
         return response.text

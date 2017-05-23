@@ -108,7 +108,7 @@ class Billing(Morpheus):
 
             if ids:
 
-                json_data = json.loads(response.text)
+                json_data = response.json()
 
                 instance_list = []
 
