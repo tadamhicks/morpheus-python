@@ -28,6 +28,6 @@ Current code lives on https://github.com/tadamhicks/morpheus-python
 
 from morpheusapi import (morpheus, billing, instances)
 
-__all__ = ["morpheus", "billing", "instances"]
+__all__ = ["morpheus", "billing", "instances", "provision_types"]
 
 __version__ = '2.11.1'
