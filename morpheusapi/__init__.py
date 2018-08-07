@@ -26,7 +26,7 @@ Adam Hicks (thomas.adam.hicks@gmail.com, ahicks@morpheusdata.com)
 Current code lives on https://github.com/tadamhicks/morpheus-python
 """
 
-from morpheusapi import (morpheus, billing, instances)
+from morpheusapi import (morpheus, billing, instances, provision_types)
 
 __all__ = ["morpheus", "billing", "instances", "provision_types"]
 
