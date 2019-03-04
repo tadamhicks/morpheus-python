@@ -41,4 +41,4 @@ class Provision_Type(Morpheus):
     	
     	response = requests.get(provision_types_url, headers=self.headers)
 
-    	return response.text
+    	return response.json()

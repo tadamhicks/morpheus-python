@@ -40,7 +40,7 @@ class Billing(Morpheus):
 
         response = requests.get(account_url, headers=self.headers)
 
-        return response.text
+        return response.json()
 
     def get_zones(self, id=None):
 
@@ -62,7 +62,7 @@ class Billing(Morpheus):
 
         response = requests.get(zone_url, headers=self.headers)
 
-        return response.text
+        return response.json()
 
     def get_servers(self, id=None):
 
@@ -84,7 +84,7 @@ class Billing(Morpheus):
 
             response = requests.get(servers_url, headers=self.headers)
 
-            return response.text
+            return response.json()
 
     def get_instances(self, id=None, ids=False):
 
@@ -119,4 +119,4 @@ class Billing(Morpheus):
 
             else:
 
-                return response.text
+                return response.json()

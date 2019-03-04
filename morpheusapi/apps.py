@@ -36,4 +36,4 @@ class App(Morpheus):
 
     	response = requests.get(apps_url, headers=self.headers)
 
-    	return response.text
+    	return response.json()

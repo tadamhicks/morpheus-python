@@ -54,7 +54,7 @@ class Instances(Morpheus):
 
         else:
 
-            return response.text
+            return response.json()
 
     def get_instance_env(self, id):
 
@@ -72,7 +72,7 @@ class Instances(Morpheus):
 
         response = requests.get(env_url, headers=self.headers)
 
-        return response.text
+        return response.json()
 
     def provision_instance(self, data):
 
@@ -88,4 +88,4 @@ class Instances(Morpheus):
 
         response = requests.post(provision_url, headers=self.headers, data=data)
 
-        return response.text
+        return response.json()
